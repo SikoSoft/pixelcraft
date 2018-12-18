@@ -12,19 +12,11 @@
 </template>
 
 <script>
-
 import Pixel from './Pixel.vue';
-//const dim = {x: 32, y: 32};
-//const cellSize = 16;
 
 export default {
-  //name: 'Canvas',
-  // data() {
-  //   return {};//{ dim, cellSize };
-  // },
   components: { Pixel }
 };
-
 </script>
 
 <style lang="less">
