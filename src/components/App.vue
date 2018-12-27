@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>{{ message }}</h1>
+    <Palette></Palette>
     <Canvas></Canvas>
   </div>
 </template>
@@ -9,9 +10,10 @@
 import store from '../store';
 import { mapState, mapActions } from 'vuex';
 import Canvas from './Canvas.vue';
+import Palette from './Palette.vue';
 
 export default {
-  components: { Canvas },
+  components: { Canvas, Palette },
   data() {
     return {
       message: 'PixelCraft'

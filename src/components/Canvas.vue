@@ -25,6 +25,7 @@ export default {
   border: 1px #eee solid;
   padding: 10px;
   min-height: 200px;
+  border-radius: 4px;
   table {
     border: 1px #ccc solid;
     background-color: #fff;
