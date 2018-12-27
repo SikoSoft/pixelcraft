@@ -1,6 +1,7 @@
 <template>
   <td
-    @click="setCellValue({r, c, v})"
+    @click="setCellValue({r, c})"
+    @mouseover="mouseOver"
     v-bind:style="{ backgroundColor: $store.getters.cellValue(r, c) }"></td>
 </template>
 
@@ -10,9 +11,14 @@ import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
   props: ['r', 'c', 'v'],
-  methods: mapActions([
-    'setCellValue'
-  ]),
+  methods: {
+    mouseOver: () => {
+      console.log("mouseOver");
+    },
+    ...mapActions([
+      'setCellValue'
+    ]),
+  }
   // computed: mapGetters([
   //   'cellValue'
   // ])

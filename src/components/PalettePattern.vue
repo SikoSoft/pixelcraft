@@ -10,17 +10,8 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   props: [ 'pattern' ],
-  // data () {
-  //   console.log(this.$store.getters.activePattern, this.pattern);
-  //   return {
-  //     isActive: this.$store.getters.activePattern === this.pattern
-  //   };
-  // },
   methods: mapActions([
     'setActivePattern'
-  ]),
-  computed: mapGetters([
-    //'activePattern'
   ])
 };
 </script>
