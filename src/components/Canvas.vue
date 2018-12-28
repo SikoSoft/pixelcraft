@@ -5,8 +5,7 @@
         <Pixel v-for="column in $store.state.dim.c"
           v-bind:key="(row-1)+'.'+(column-1)"
           v-bind:r="row-1"
-          v-bind:c="column-1">
-        </Pixel>
+          v-bind:c="column-1"/>
       </tr>
     </table>
   </div>

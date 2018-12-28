@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>{{ message }}</h1>
-    <Palette></Palette>
-    <Canvas></Canvas>
+    <Palette/>
+    <Canvas/>
   </div>
 </template>
 
@@ -18,14 +18,6 @@ export default {
     return {
       message: 'PixelCraft'
     };
-  },
-  mounted() {
-    this.$store.dispatch('setup');
-  },
-  watch: {
-    canvas: function () {
-      console.log('watching canvas');
-    }
   }
 };
 </script>

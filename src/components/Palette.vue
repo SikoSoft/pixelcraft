@@ -3,8 +3,7 @@
     <ul>
       <PalettePattern v-for="pattern in patterns"
         v-bind:key="pattern"
-        v-bind:pattern="pattern">
-      </PalettePattern>
+        v-bind:pattern="pattern"/>
     </ul>
   </div>
 </template>
@@ -35,7 +34,6 @@ export default {
 <style lang="less">
 #pc-palette {
   background-color: #efefef;
-  //min-height: 50px;
   ul {
     list-style: none;
     margin: 0;

@@ -12,10 +12,6 @@ const state = {
 state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
 
 const mutations = {
-  setupEmptyCanvas (state) {
-    //console.log("setupEmptyCanvas");
-    //state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
-  },
   setCellValue (state, { r, c, pattern }) {
     console.log("setCellValue", r, c, pattern);
     state.canvas[r][c] = pattern;
@@ -27,9 +23,6 @@ const mutations = {
 };
 
 const actions = {
-  setup ({ commit, state }) {
-    //commit('setupEmptyCanvas');
-  },
   setCellValue ({ commit, state }, { r, c }) {
     commit('setCellValue', { r, c, pattern: state.activePattern });
   },
@@ -39,18 +32,16 @@ const actions = {
 };
 
 const getters = {
+  canvas: state => state.canvas,
   cellValue: (state) => (r, c) => {
-    //console.log("running getters", r, c);
     return typeof(state.canvas[r]) !== 'undefined' && typeof(state.canvas[r][c]) !== 'undefined'
       ? state.canvas[r][c] : '';
   },
   activePattern: (state) => {
-    //console.log("returning activePattern", state.activePattern);
     return state.activePattern;
   }
 };
 
-//console.log("store initial state during construction", state);
 export default new Vuex.Store({
   state,
   getters,
