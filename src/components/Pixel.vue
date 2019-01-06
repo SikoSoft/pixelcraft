@@ -9,6 +9,7 @@
 import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
+  data: { canvas: [], cellValue: ''},
   props: ['r', 'c'],
   methods: {
     mouseOver: () => {
@@ -19,8 +20,8 @@ export default {
     ]),
   },
   computed: {
-    cellValue() {
-      const canvas = this.$store.state.canvas;
+    cellValue: function() {
+      const canvas = this.$store.getters.canvas;
       return typeof(canvas[this.r]) !== 'undefined' && typeof(canvas[this.r][this.c]) !== 'undefined'
         ? canvas[this.r][this.c] : '';
     }

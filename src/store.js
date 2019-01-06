@@ -6,15 +6,17 @@ Vue.use(Vuex);
 const state = {
   dim: {r: 32, c: 32},
   cellSize: 16,
-  canvas: [],
+  canvas: [... new Array(32)].map(v => [...new Array(32)].map(v => '')),
   activePattern: ''
 };
-state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
+//state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
 
 const mutations = {
   setCellValue (state, { r, c, pattern }) {
     console.log("setCellValue", r, c, pattern);
-    state.canvas[r][c] = pattern;
+    const canvas = JSON.parse(JSON.stringify(state.canvas));
+    canvas[r][c] = pattern;
+    Vue.set(state, 'canvas', [...canvas]);
   },
   setActivePattern (state, { pattern }) {
     console.log("setActivePattern", pattern);
