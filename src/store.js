@@ -3,10 +3,12 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
+const dim = {r: 32, c: 32};
+
 const state = {
-  dim: {r: 32, c: 32},
+  dim,
   cellSize: 16,
-  canvas: [... new Array(32)].map(v => [...new Array(32)].map(v => '')),
+  canvas: [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')),
   activePattern: ''
 };
 //state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
@@ -14,13 +16,20 @@ const state = {
 const mutations = {
   setCellValue (state, { r, c, pattern }) {
     console.log("setCellValue", r, c, pattern);
-    const canvas = JSON.parse(JSON.stringify(state.canvas));
-    canvas[r][c] = pattern;
-    Vue.set(state, 'canvas', [...canvas]);
+    state.canvas[r].splice(c, 1, pattern);
   },
   setActivePattern (state, { pattern }) {
     console.log("setActivePattern", pattern);
     state.activePattern = pattern;
+  },
+  resetCanvas (state) {
+    console.log('resetCanvas');
+    for (let r = 0; r < state.canvas.length; r++) {
+      for (let c = 0; c < state.canvas[r].length; c++) {
+        state.canvas[r].splice(c, 1, '');
+      }
+    }
+    //Vue.set(state, 'canvas', [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => '')));
   }
 };
 
@@ -30,6 +39,9 @@ const actions = {
   },
   setActivePattern ({ commit }, { pattern }) {
     commit('setActivePattern', { pattern });
+  },
+  resetCanvas ({ commit }) {
+    commit('resetCanvas');
   }
 };
 

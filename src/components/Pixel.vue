@@ -9,7 +9,6 @@
 import { mapState, mapActions, mapGetters } from 'vuex';
 
 export default {
-  data: { canvas: [], cellValue: ''},
   props: ['r', 'c'],
   methods: {
     mouseOver: () => {
