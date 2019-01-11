@@ -2,6 +2,8 @@
   <td
     @click="setCellValue({r, c})"
     @mouseover="mouseOver"
+    @mousedown="mouseDown"
+    @mouseup="mouseUp"
     v-bind:style="{ backgroundColor: cellValue }"></td>
 </template>
 
@@ -11,8 +13,22 @@ import { mapState, mapActions, mapGetters } from 'vuex';
 export default {
   props: ['r', 'c'],
   methods: {
-    mouseOver: () => {
-      //console.log("mouseOver");
+    mouseOver () {
+      if (this.$store.state.mouseDown) {
+        this.setValueToActive();
+      }
+    },
+    mouseDown () {
+      this.$store.commit('mouseDown', { down: true });
+      this.setValueToActive();
+    },
+    mouseUp () {
+      this.$store.commit('mouseDown', { down: false });
+    },
+    setValueToActive () {
+      this.$store.commit('setCellValue', {
+        r: this.r, c: this.c, pattern: this.$store.state.activePattern
+      });
     },
     ...mapActions([
       'setCellValue'

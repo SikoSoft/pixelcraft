@@ -12,7 +12,7 @@ export default {
     message: "Tool bar"
   }),
   mounted () {
-    console.log("mounted", this.$strings);
+    //console.log("mounted", this.$strings);
   },
   methods: mapMutations(['resetCanvas'])
 };

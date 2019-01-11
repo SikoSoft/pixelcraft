@@ -9,7 +9,8 @@ const state = {
   dim,
   cellSize: 16,
   canvas: [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')),
-  activePattern: ''
+  activePattern: '',
+  mouseDown: false
 };
 //state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));
 
@@ -30,6 +31,9 @@ const mutations = {
       }
     }
     //Vue.set(state, 'canvas', [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => '')));
+  },
+  mouseDown (state, { down }) {
+    state.mouseDown = down;
   }
 };
 
