@@ -4,7 +4,7 @@
     @mouseover="mouseOver"
     @mousedown="mouseDown"
     @mouseup="mouseUp"
-    v-bind:style="{ backgroundColor: cellValue }"></td>
+    v-bind:style="{ backgroundColor: cellValue, height: `${$store.state.cellSize}px`, width: `${$store.state.cellSize}px` }"></td>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
       this.setValueToActive();
     },
     mouseUp () {
-      this.$store.commit('mouseDown', { down: false });
+      //this.$store.commit('mouseDown', { down: false });
     },
     setValueToActive () {
       this.$store.commit('setCellValue', {
@@ -50,5 +50,8 @@ export default {
 </script>
 
 <style lang="less">
-
+td {
+  border: 1px #fff solid;
+  background-color: #efefef;
+}
 </style>

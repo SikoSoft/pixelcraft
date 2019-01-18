@@ -3,11 +3,11 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const dim = {r: 32, c: 32};
+const dim = {r: 48, c: 48};
 
 const state = {
   dim,
-  cellSize: 16,
+  cellSize: 10,
   canvas: [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')),
   activePattern: '',
   mouseDown: false
@@ -16,15 +16,15 @@ const state = {
 
 const mutations = {
   setCellValue (state, { r, c, pattern }) {
-    console.log("setCellValue", r, c, pattern);
+    //console.log("setCellValue", r, c, pattern);
     state.canvas[r].splice(c, 1, pattern);
   },
   setActivePattern (state, { pattern }) {
-    console.log("setActivePattern", pattern);
+   //console.log("setActivePattern", pattern);
     state.activePattern = pattern;
   },
   resetCanvas (state) {
-    console.log('resetCanvas');
+    //console.log('resetCanvas');
     for (let r = 0; r < state.canvas.length; r++) {
       for (let c = 0; c < state.canvas[r].length; c++) {
         state.canvas[r].splice(c, 1, '');

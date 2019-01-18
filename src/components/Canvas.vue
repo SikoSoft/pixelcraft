@@ -31,15 +31,7 @@ export default {
     min-height: 200px;
     box-sizing: border-box;
     margin: auto;
-    //width: 100%;
-    tr {
-      td {
-        min-width: 16px;
-        height: 16px;
-        margin: 2px;
-        background-color: #efefef;
-      }
-    }
+    border-collapse: collapse;
   }
 }
 </style>

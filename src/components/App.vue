@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @mouseup="onMouseUp">
     <h1>{{ message }}</h1>
     <ToolBar/>
     <Palette/>
@@ -15,6 +15,11 @@ import ToolBar from './ToolBar.vue';
 
 export default {
   components: { Canvas, Palette, ToolBar },
+  methods: {
+    onMouseUp () {
+      this.$store.commit('mouseDown', { down: false });
+    }
+  },
   data() {
     return {
       message: 'PixelCraft'
