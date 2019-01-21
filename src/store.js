@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const dim = {r: 48, c: 48};
+const dim = {r: 32, c: 32};
 
 const state = {
   dim,
@@ -25,8 +25,8 @@ const mutations = {
   },
   resetCanvas (state) {
     //console.log('resetCanvas');
-    for (let r = 0; r < state.canvas.length; r++) {
-      for (let c = 0; c < state.canvas[r].length; c++) {
+    for (let r = 0; r < state.dim.r; r++) {
+      for (let c = 0; c < state.dim.c; c++) {
         state.canvas[r].splice(c, 1, '');
       }
     }
@@ -34,6 +34,9 @@ const mutations = {
   },
   mouseDown (state, { down }) {
     state.mouseDown = down;
+  },
+  setDim (state, { axis, value }) {
+    state.dim[axis] = parseInt(value);
   }
 };
 
@@ -46,6 +49,9 @@ const actions = {
   },
   resetCanvas ({ commit }) {
     commit('resetCanvas');
+  },
+  setDim ({ commit }, { axis, value }) {
+    commit('setDim');
   }
 };
 

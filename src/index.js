@@ -6,7 +6,7 @@ import strings from './data/strings.json';
 Vue.mixin({
   beforeCreate () {
     this.$strings = strings;
-    console.log("set strings");
+    //console.log("set strings");
   }
 })
 
