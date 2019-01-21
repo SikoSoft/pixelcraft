@@ -32,6 +32,9 @@ const mutations = {
     }
     //Vue.set(state, 'canvas', [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => '')));
   },
+  newCanvas (state) {
+    Vue.set(state, 'canvas', [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')));
+  },
   mouseDown (state, { down }) {
     state.mouseDown = down;
   },
@@ -52,7 +55,7 @@ const actions = {
   },
   setDim ({ commit }, { axis, value }) {
     commit('setDim', { axis, value });
-    commit('resetCanvas');
+    commit('newCanvas');
   }
 };
 
