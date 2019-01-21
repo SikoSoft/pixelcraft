@@ -14,7 +14,7 @@ export default {
         return this.$store.state.dim.r;
       },
       set: function(newR) {
-        this.$store.commit('setDim', { axis: 'r', value: newR });
+        this.$store.dispatch('setDim', { axis: 'r', value: newR });
       }
     },
     c: {
@@ -22,7 +22,7 @@ export default {
         return this.$store.state.dim.c;
       },
       set: function(newC) {
-        this.$store.commit('setDim', { axis: 'c', value: newC });
+        this.$store.dispatch('setDim', { axis: 'c', value: newC });
       }
     }
   },

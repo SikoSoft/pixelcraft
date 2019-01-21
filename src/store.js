@@ -51,7 +51,8 @@ const actions = {
     commit('resetCanvas');
   },
   setDim ({ commit }, { axis, value }) {
-    commit('setDim');
+    commit('setDim', { axis, value });
+    commit('resetCanvas');
   }
 };
 
