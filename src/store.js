@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { patterns } from './data/patterns.json';
 
 Vue.use(Vuex);
 
@@ -9,7 +10,7 @@ const state = {
   dim,
   cellSize: 10,
   canvas: [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')),
-  activePattern: '',
+  activePattern: patterns[1],
   mouseDown: false
 };
 //state.canvas = [... new Array(state.dim.r)].map(v => [...new Array(state.dim.c)].map(v => ''));

@@ -10,16 +10,7 @@
 
 <script>
 import PalettePattern from './PalettePattern.vue';
-
-const patterns = [
-  '',
-  '#f00',
-  '#0f0',
-  '#00f',
-  '#ff0',
-  '#0ff',
-  '#f0f'
-];
+import { patterns } from '../data/patterns.json';
 
 export default {
   components: { PalettePattern },
