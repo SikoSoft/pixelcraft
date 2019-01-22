@@ -35,15 +35,20 @@ body {
 h1 {
   display: none;
 }
-button {
+input, textarea, select, button {
   padding: 5px;
   margin: auto;
   border-radius: 4px;
   font-family: Abel;
   font-size: 16px;
   border: 1px #d80 solid;
-  background-color: #f9c9a9;
+  text-transform: uppercase;
+  outline: none;
+}
+button {
+  background: linear-gradient(to top, #f9c9a9, #fddbcc);
   color: #000;
   cursor: pointer;
 }
+
 </style>

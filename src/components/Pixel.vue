@@ -3,7 +3,6 @@
     @click="setCellValue({r, c})"
     @mouseover="mouseOver"
     @mousedown="mouseDown"
-    @mouseup="mouseUp"
     v-bind:style="{ backgroundColor: cellValue, height: `${$store.state.cellSize}px`, width: `${$store.state.cellSize}px` }"></td>
 </template>
 
@@ -18,12 +17,10 @@ export default {
         this.setValueToActive();
       }
     },
-    mouseDown () {
+    mouseDown (e) {
       this.$store.commit('mouseDown', { down: true });
       this.setValueToActive();
-    },
-    mouseUp () {
-      //this.$store.commit('mouseDown', { down: false });
+      e.preventDefault();
     },
     setValueToActive () {
       this.$store.commit('setCellValue', {
@@ -41,11 +38,6 @@ export default {
         ? canvas[this.r][this.c] : '';
     }
   }
-/*
-  computed: mapGetters([
-    'cellValue'
-  ])
-*/
 }
 </script>
 
