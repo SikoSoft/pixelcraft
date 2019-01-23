@@ -1,5 +1,6 @@
 {
   "title": "PixelCraft",
   "reset": "Reset",
-  "canvasSize": "Canvas size"
+  "canvasSize": "Canvas size",
+  "pixelSize": "Pixel size"
 }
