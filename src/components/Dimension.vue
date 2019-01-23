@@ -1,9 +1,9 @@
 <template>
-<div id='pc-dimension'>
-  <input type="text" v-model="r"/>
-  <input type="text" v-model="c"/>
-  
-</div>
+  <fieldset id='pc-dimension'>
+    <legend>{{ $strings.canvasSize }}</legend>
+    <input type="text" v-model="r" class="number"/>
+    <input type="text" v-model="c" class="number"/>
+  </fieldset>
 </template>
 
 <script>

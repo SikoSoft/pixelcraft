@@ -1,6 +1,6 @@
 <template>
   <div @mouseup="onMouseUp">
-    <h1>{{ message }}</h1>
+    <h1>{{ $strings.title }}</h1>
     <ToolBar/>
     <Palette/>
     <Canvas/>
@@ -19,11 +19,6 @@ export default {
     onMouseUp () {
       this.$store.commit('mouseDown', { down: false });
     }
-  },
-  data() {
-    return {
-      message: 'PixelCraft'
-    };
   }
 };
 </script>
@@ -44,11 +39,24 @@ input, textarea, select, button {
   border: 1px #d80 solid;
   text-transform: uppercase;
   outline: none;
+  &.number {
+    width: 32px;
+    text-align: center;
+    &:focus {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+    }
+  }
 }
 button {
   background: linear-gradient(to top, #f9c9a9, #fddbcc);
   color: #000;
   cursor: pointer;
 }
-
+fieldset {
+  border: 1px rgba(0, 0, 0, 0.3) solid;
+  border-radius: 4px;
+  legend {
+    text-transform: uppercase;
+  }
+}
 </style>
