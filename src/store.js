@@ -41,6 +41,9 @@ const mutations = {
   },
   setDim (state, { axis, value }) {
     state.dim[axis] = parseInt(value);
+  },
+  setCellSize (state, { size }) {
+    state.cellSize = size;
   }
 };
 
