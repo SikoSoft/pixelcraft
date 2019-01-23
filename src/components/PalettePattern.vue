@@ -21,11 +21,12 @@ li {
   width: 24px;
   height: 24px;
   display: inline-block;
-  border: 2px #888 solid;
+  border: 1px #888 solid;
   margin: 4px;
   opacity: 0.3;
+  border-radius: 4px;
   &.active {
-    border: 2px #000 solid;
+    border: 1px #000 solid;
     opacity: 1;
   }
 }
