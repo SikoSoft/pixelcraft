@@ -28,7 +28,7 @@ body {
   font-family: Abel, sans-serif;
 }
 h1 {
-  display: none;
+  //display: none;
 }
 input, textarea, select, button {
   padding: 5px;
@@ -43,7 +43,8 @@ input, textarea, select, button {
     width: 32px;
     text-align: center;
     &:focus {
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+      box-shadow: 0 0 5px rgba(0, 0, 5px, 0.7);
+      background-color: rgb(235, 255, 235);
     }
   }
 }
