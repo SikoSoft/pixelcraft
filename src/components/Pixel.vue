@@ -3,7 +3,7 @@
     @click="setCellValue({r, c})"
     @mouseover="mouseOver"
     @mousedown="mouseDown"
-    v-bind:style="{ backgroundColor: cellValue, height: `${$store.state.cellSize}px`, width: `${$store.state.cellSize}px` }"></td>
+    v-bind:style="{ backgroundColor: cellValue, height: `${$store.state.cellSize}px`, minWidth: `${$store.state.cellSize}px` }"></td>
 </template>
 
 <script>
