@@ -2,5 +2,7 @@
   "title": "PixelCraft",
   "reset": "Reset",
   "canvasSize": "Canvas size",
-  "pixelSize": "Pixel size"
+  "pixelSize": "Pixel size",
+  "swapPattern": "Swap pattern",
+  "swap": "Swap"
 }
