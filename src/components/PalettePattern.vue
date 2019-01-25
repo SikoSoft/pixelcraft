@@ -1,5 +1,5 @@
 <template>
-  <li @click="setActivePattern({pattern})"
+  <li @click="handleClick({pattern})"
     v-bind:style="{ backgroundColor: pattern }"
     v-bind:class="{ active: $store.getters.activePattern === pattern}">
   </li>
@@ -9,10 +9,12 @@
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  props: [ 'pattern' ],
-  methods: mapActions([
-    'setActivePattern'
-  ])
+  props: [ 'pattern', 'clickHandler' ],
+  methods: {
+    handleClick ({ pattern }) {
+      this.$store.dispatch(this.clickHandler, { pattern });
+    }
+  }
 };
 </script>
 
