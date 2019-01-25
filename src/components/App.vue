@@ -27,9 +27,6 @@ export default {
 body {
   font-family: Abel, sans-serif;
 }
-h1 {
-  //display: none;
-}
 input, textarea, select, button {
   padding: 5px;
   margin: auto;
