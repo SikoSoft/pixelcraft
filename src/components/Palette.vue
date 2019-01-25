@@ -1,12 +1,34 @@
 <template>
-  <div>
+  <div id="pc-palette">
+    <ul>
+      <PalettePattern v-for="pattern in patterns"
+        v-bind:key="pattern"
+        v-bind:pattern="pattern"/>
+    </ul>
   </div>
 </template>
 
 <script>
+import PalettePattern from './PalettePattern.vue';
+import { patterns } from '../data/patterns.json';
 
+export default {
+  components: { PalettePattern },
+  data(){
+    return {
+      patterns
+    }
+  }
+};
 </script>
 
 <style lang="less">
-
+#pc-palette {
+  background-color: #efefef;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
 </style>
