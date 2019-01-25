@@ -4,7 +4,9 @@
       <PalettePattern v-for="pattern in patterns"
         v-bind:key="pattern"
         v-bind:pattern="pattern"
-        v-bind:clickHandler="patternClickHandler"/>
+        v-bind:clickHandler="patternClickHandler"
+        v-bind:clickTarget="patternClickTarget"
+        />
     </ul>
   </div>
 </template>
@@ -14,7 +16,7 @@ import PalettePattern from './PalettePattern.vue';
 import { patterns } from '../data/patterns.json';
 
 export default {
-  props: ['patternClickHandler'],
+  props: ['patternClickHandler', 'patternClickTarget'],
   components: { PalettePattern },
   data(){
     return {
