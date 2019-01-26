@@ -1,9 +1,13 @@
 <template>
-  <div id="pc-toolbar">
+  <div id="pc-toolbar" v-if="$store.state.toolBarOpen">
+    <button @click="hideToolBar">{{ $strings.hideToolBar }}</button>
     <button @click="resetCanvas">{{ $strings.reset }}</button>
-    <Dimension/>
-    <PixelSize/>
-    <Swapper/>
+    <Dimension />
+    <PixelSize />
+    <Swapper />
+  </div>
+  <div id="pc-toolbar-gone" v-else>
+    <button @click="showToolBar">{{ $strings.showToolBar }}</button>
   </div>
 </template>
 
@@ -21,7 +25,7 @@ export default {
   mounted () {
     //console.log("mounted", this.$strings);
   },
-  methods: mapMutations(['resetCanvas'])
+  methods: mapMutations(['resetCanvas', 'showToolBar', 'hideToolBar'])
 };
 </script>
 

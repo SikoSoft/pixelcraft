@@ -4,5 +4,7 @@
   "canvasSize": "Canvas size",
   "pixelSize": "Pixel size",
   "swapPattern": "Swap pattern",
-  "swap": "Swap"
+  "swap": "Swap",
+  "showToolBar": "Show Tool Bar",
+  "hideToolBar": "Hide Tool Bar"
 }

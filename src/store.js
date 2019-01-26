@@ -13,7 +13,8 @@ const state = {
   activePattern: patterns[1],
   mouseDown: false,
   swapFrom: patterns[0],
-  swapTo: patterns[0]
+  swapTo: patterns[0],
+  toolBarOpen: true
 };
 
 const mutations = {
@@ -41,6 +42,15 @@ const mutations = {
   },
   setCellSize (state, { size }) {
     state.cellSize = size;
+  },
+  showToolBar (state) {
+    state.toolBarOpen = true;
+  },
+  hideToolBar (state) {
+    state.toolBarOpen = false;
+  },
+  toggleToolBar (state) {
+    state.toolBarOpen = !state.toolBarOpen;
   }
 };
 
@@ -68,6 +78,15 @@ const actions = {
         }
       }
     }
+  },
+  hideToolBar ({ commit }) {
+    commit("hideToolBar");
+  },
+  showToolBar ({ commit }) {
+    commit("showToolBar");
+  },
+  toggleToolBar ({ commit }) {
+    commit("toggleToolBar");
   }
 };
 

@@ -1,9 +1,9 @@
 <template>
   <div @mouseup="onMouseUp">
     <h1>{{ $strings.title }}</h1>
-    <ToolBar/>
+    <ToolBar />
     <Palette v-bind:patternClickTarget="`activePattern`" />
-    <Canvas/>
+    <Canvas />
   </div>
 </template>
 
