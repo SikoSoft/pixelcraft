@@ -4,18 +4,20 @@ import { patterns } from './data/patterns.json';
 
 Vue.use(Vuex);
 
-const dim = {r: 32, c: 32};
-
 const state = {
-  dim,
-  cellSize: 10,
-  canvas: [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')),
+  canvasX: 32,
+  canvasY: 32,
+  pixelSize: 10,
+  pixelGutter: 1,
+  canvas: [],
   activePattern: patterns[1],
   mouseDown: false,
   swapFrom: patterns[0],
   swapTo: patterns[0],
-  toolBarOpen: false
+  toolBarOpen: false,
+  numberFields: []
 };
+state.canvas = [... new Array(state.canvasY)].map(v => [...new Array(state.canvasX)].map(v => ''));
 
 const mutations = {
   setCellValue (state, { r, c, pattern }) {
@@ -25,23 +27,17 @@ const mutations = {
     state.activePattern = pattern;
   },
   resetCanvas (state) {
-    for (let r = 0; r < state.dim.r; r++) {
-      for (let c = 0; c < state.dim.c; c++) {
+    for (let r = 0; r < state.canvasY; r++) {
+      for (let c = 0; c < state.canvasX; c++) {
         state.canvas[r].splice(c, 1, '');
       }
     }
   },
   newCanvas (state) {
-    Vue.set(state, 'canvas', [... new Array(dim.r)].map(v => [...new Array(dim.r)].map(v => '')));
+    Vue.set(state, 'canvas', [... new Array(state.canvasY)].map(v => [...new Array(state.canvasX)].map(v => '')));
   },
   mouseDown (state, { down }) {
     state.mouseDown = down;
-  },
-  setDim (state, { axis, value }) {
-    state.dim[axis] = parseInt(value);
-  },
-  setCellSize (state, { size }) {
-    state.cellSize = size;
   },
   showToolBar (state) {
     state.toolBarOpen = true;
@@ -51,6 +47,16 @@ const mutations = {
   },
   toggleToolBar (state) {
     state.toolBarOpen = !state.toolBarOpen;
+  },
+  setCellGutter (state, { cellGutter }) {
+    state.cellGutter = cellGutter;
+  },
+  setNumber (state, { stateKey, value}) {
+    console.log("setNumber", stateKey, value);
+    state[stateKey] = value;
+  },
+  registerNumberField (state, { stateKey }) {
+    state.numberFields.push(stateKey);
   }
 };
 
@@ -63,10 +69,6 @@ const actions = {
   },
   resetCanvas ({ commit }) {
     commit('resetCanvas');
-  },
-  setDim ({ commit }, { axis, value }) {
-    commit('setDim', { axis, value });
-    commit('newCanvas');
   },
   swap ({ commit, state }) {
     // ToDo: cleaner es6 way about this? probably not due to vue's
@@ -87,6 +89,14 @@ const actions = {
   },
   toggleToolBar ({ commit }) {
     commit("toggleToolBar");
+  },
+  setNumber ({ commit, state }, { stateKey, value}) {
+    if (state.numberFields.indexOf()) { // prevent state craziness
+      commit("setNumber", { stateKey, value: parseInt(value) });
+    }
+  },
+  registerNumberField ({ commit}, { stateKey }) {
+    commit("registerNumberField", { stateKey });
   }
 };
 

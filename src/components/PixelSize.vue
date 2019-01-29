@@ -1,22 +1,15 @@
 <template>
   <fieldset>
     <legend>{{ $strings.pixelSize }}</legend>
-    <input type="text" v-model="size" class="number"/>
+    <NumberField v-bind:stateKey="`pixelSize`" />
   </fieldset>
 </template>
 
 <script>
+import NumberField from './NumberField.vue';
+
 export default {
-  computed: {
-    size: {
-      get: function () {
-        return this.$store.state.cellSize;
-      },
-      set: function(newSize) {
-        this.$store.commit('setCellSize', { size: newSize });
-      }
-    }
-  }
+  components: { NumberField }
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div id='pixelcraft-canvas'>
     <table>
-      <tr v-for="row in $store.state.dim.r" v-bind:key="row-1">
-        <Pixel v-for="column in $store.state.dim.c"
+      <tr v-for="row in $store.state.canvasY" v-bind:key="row-1">
+        <Pixel v-for="column in $store.state.canvasX"
           v-bind:key="(row-1)+'.'+(column-1)"
           v-bind:r="row-1"
           v-bind:c="column-1"/>

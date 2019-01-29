@@ -1,31 +1,16 @@
 <template>
   <fieldset id='pc-dimension'>
     <legend>{{ $strings.canvasSize }}</legend>
-    <input type="text" v-model="r" class="number"/>
-    <input type="text" v-model="c" class="number"/>
+    <NumberField v-bind:stateKey="`canvasY`" />
+    <NumberField v-bind:stateKey="`canvasX`" />
   </fieldset>
 </template>
 
 <script>
+import NumberField from './NumberField.vue';
+
 export default {
-  computed: {
-    r: {
-      get: function(){
-        return this.$store.state.dim.r;
-      },
-      set: function(newR) {
-        this.$store.dispatch('setDim', { axis: 'r', value: newR });
-      }
-    },
-    c: {
-      get: function(){
-        return this.$store.state.dim.c;
-      },
-      set: function(newC) {
-        this.$store.dispatch('setDim', { axis: 'c', value: newC });
-      }
-    }
-  },
+  components: { NumberField }
 };
 </script>
 

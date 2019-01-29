@@ -3,7 +3,7 @@
     @click="setCellValue({r, c})"
     @mouseover="mouseOver"
     @mousedown="mouseDown"
-    v-bind:style="{ backgroundColor: cellValue, height: `${$store.state.cellSize}px`, minWidth: `${$store.state.cellSize}px` }"></td>
+    v-bind:style="style"></td>
 </template>
 
 <script>
@@ -36,6 +36,14 @@ export default {
       const canvas = this.$store.getters.canvas;
       return typeof(canvas[this.r]) !== 'undefined' && typeof(canvas[this.r][this.c]) !== 'undefined'
         ? canvas[this.r][this.c] : '';
+    },
+    style: function() {
+      return {
+        borderWidth: `${this.$store.state.pixelGutter}px`,
+        backgroundColor: this.cellValue,
+        height: `${this.$store.state.pixelSize}px`,
+        minWidth: `${this.$store.state.pixelSize}px`
+      };
     }
   }
 }
@@ -43,7 +51,7 @@ export default {
 
 <style lang="less">
 td {
-  border: 1px #fff solid;
+  border: #fff solid;
   background-color: #efefef;
 }
 </style>
