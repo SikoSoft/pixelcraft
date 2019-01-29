@@ -14,7 +14,7 @@ const state = {
   mouseDown: false,
   swapFrom: patterns[0],
   swapTo: patterns[0],
-  toolBarOpen: true
+  toolBarOpen: false
 };
 
 const mutations = {

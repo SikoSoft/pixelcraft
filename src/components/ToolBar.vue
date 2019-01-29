@@ -1,12 +1,12 @@
 <template>
-  <div id="pc-toolbar" v-if="$store.state.toolBarOpen">
+  <div id="pc-toolbar-open" v-if="$store.state.toolBarOpen">
     <button @click="hideToolBar">{{ $strings.hideToolBar }}</button>
     <button @click="resetCanvas">{{ $strings.reset }}</button>
     <Dimension />
     <PixelSize />
     <Swapper />
   </div>
-  <div id="pc-toolbar-gone" v-else>
+  <div id="pc-toolbar-closed" v-else>
     <button @click="showToolBar">{{ $strings.showToolBar }}</button>
   </div>
 </template>
@@ -30,5 +30,21 @@ export default {
 </script>
 
 <style lang="less">
+#pc-toolbar-open {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 9990;
+  width: 300px;
+  background-color: #fff;
+  box-shadow: -3px 0 5px rgba(0,0,0,0.3);
+  padding: 10px;
+}
 
+#pc-toolbar-closed {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: 10px;
+}
 </style>
