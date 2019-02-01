@@ -6,5 +6,10 @@
   "swapPattern": "Swap pattern",
   "swap": "Swap",
   "showToolBar": "Show Tool Bar",
-  "hideToolBar": "Hide Tool Bar"
+  "hideToolBar": "Hide Tool Bar",
+  "modes": {
+    "line": "Line",
+    "circle": "Circle",
+    "square": "Square"
+  }
 }

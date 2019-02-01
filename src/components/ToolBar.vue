@@ -2,6 +2,7 @@
   <div id="pc-toolbar-open" v-if="$store.state.toolBarOpen">
     <button @click="hideToolBar">{{ $strings.hideToolBar }}</button>
     <button @click="resetCanvas">{{ $strings.reset }}</button>
+    <ToggleButtons />
     <Dimension />
     <PixelSize />
     <Swapper />
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import ToggleButtons from './ToggleButtons.vue'
 import Dimension from './Dimension.vue';
 import PixelSize from './PixelSize.vue';
 import Swapper from './Swapper.vue';
@@ -21,7 +23,7 @@ export default {
   data: () => ({
     message: "Tool bar"
   }),
-  components: { Dimension, PixelSize, Swapper },
+  components: { ToggleButtons, Dimension, PixelSize, Swapper },
   mounted () {
     //console.log("mounted", this.$strings);
   },

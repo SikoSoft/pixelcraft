@@ -15,7 +15,12 @@ const state = {
   swapFrom: patterns[0],
   swapTo: patterns[0],
   toolBarOpen: false,
-  numberFields: []
+  numberFields: [],
+  modes: {
+    line: false,
+    circle: false,
+    square: false,
+  }
 };
 state.canvas = [... new Array(state.canvasY)].map(v => [...new Array(state.canvasX)].map(v => ''));
 
@@ -57,6 +62,9 @@ const mutations = {
   },
   registerNumberField (state, { stateKey }) {
     state.numberFields.push(stateKey);
+  },
+  setMode (state, { modeType, isOn }) {
+    state.modes[modeType] = isOn;
   }
 };
 
@@ -95,8 +103,16 @@ const actions = {
       commit("setNumber", { stateKey, value: parseInt(value) });
     }
   },
-  registerNumberField ({ commit}, { stateKey }) {
+  registerNumberField ({ commit }, { stateKey }) {
     commit("registerNumberField", { stateKey });
+  },
+  toggleMode ({ commit, state }, { modeType }) {
+    for (let m in state.modes) {
+      if (m !== modeType) {
+        commit("setMode", {modeType: m, isOn: false});
+      }
+    }
+    commit("setMode", { modeType, isOn: state.modes[modeType] = !state.modes[modeType]});
   }
 };
 
