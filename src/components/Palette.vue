@@ -2,9 +2,9 @@
   <div id="pc-palette">
     <ul>
       <PalettePattern v-for="pattern in patterns"
-        v-bind:key="pattern"
-        v-bind:pattern="pattern"
-        v-bind:clickTarget="patternClickTarget"
+        :key="pattern"
+        :pattern="pattern"
+        :clickTarget="patternClickTarget"
         />
     </ul>
   </div>

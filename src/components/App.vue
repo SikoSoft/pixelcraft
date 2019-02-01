@@ -2,7 +2,7 @@
   <div @mouseup="onMouseUp">
     <h1>{{ $strings.title }}</h1>
     <ToolBar />
-    <Palette v-bind:patternClickTarget="`activePattern`" />
+    <Palette :patternClickTarget="`activePattern`" />
     <Canvas />
   </div>
 </template>

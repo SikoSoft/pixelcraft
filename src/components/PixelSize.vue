@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <legend>{{ $strings.pixelSize }}</legend>
-    <NumberField v-bind:stateKey="`pixelSize`" />
+    <NumberField :stateKey="`pixelSize`" />
   </fieldset>
 </template>
 

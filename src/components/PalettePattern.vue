@@ -1,7 +1,7 @@
 <template>
   <li @click="handleClick(pattern)"
-    v-bind:style="{ backgroundColor: pattern }"
-    v-bind:class="{ active: $store.getters[clickTarget] === pattern}"
+    :style="{ backgroundColor: pattern }"
+    :class="{ active: $store.getters[clickTarget] === pattern}"
     >
   </li>
 </template>

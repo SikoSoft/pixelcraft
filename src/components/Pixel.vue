@@ -3,7 +3,7 @@
     @click="setCellValue({r, c})"
     @mouseover="mouseOver"
     @mousedown="mouseDown"
-    v-bind:style="style"></td>
+    :style="style"></td>
 </template>
 
 <script>

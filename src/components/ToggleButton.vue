@@ -1,6 +1,6 @@
 <template>
-  <button @click="toggle({modeType: mode})" v-bind:class="[ $store.state.modes[mode] ? 'on' : 'off' ]">
-    <i v-bind:class="[ 'fas', faMap[mode] ]"></i>
+  <button @click="toggle({modeType: mode})" :class="[ $store.state.modes[mode] ? 'on' : 'off' ]">
+    <i :class="[ 'fas', faMap[mode] ]"></i>
   </button>
 </template>
 

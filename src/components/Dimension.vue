@@ -1,8 +1,8 @@
 <template>
   <fieldset id='pc-dimension'>
     <legend>{{ $strings.canvasSize }}</legend>
-    <NumberField v-bind:stateKey="`canvasY`" />
-    <NumberField v-bind:stateKey="`canvasX`" />
+    <NumberField :stateKey="`canvasY`" />
+    <NumberField :stateKey="`canvasX`" />
   </fieldset>
 </template>
 

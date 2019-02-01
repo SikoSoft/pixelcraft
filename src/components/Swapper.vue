@@ -1,8 +1,8 @@
 <template>
   <fieldset>
     <legend>{{ $strings.swapPattern }}</legend>
-    <Palette v-bind:patternClickTarget="`swapFrom`" />
-    <Palette v-bind:patternClickTarget="`swapTo`" />
+    <Palette :patternClickTarget="`swapFrom`" />
+    <Palette :patternClickTarget="`swapTo`" />
     <button @click="swap">{{ $strings.swap }}</button>
   </fieldset>
 </template>
