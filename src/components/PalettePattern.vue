@@ -1,18 +1,20 @@
 <template>
-  <li @click="handleClick(pattern)"
+  <li
+    @click="handleClick(pattern)"
     :style="{ backgroundColor: pattern }"
     :class="{ active: $store.getters[clickTarget] === pattern}"
-    >
+  >
+    <slot></slot>
   </li>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  props: [ 'pattern', 'clickTarget' ],
+  props: ["pattern", "clickTarget"],
   methods: {
-    handleClick (pattern) {
+    handleClick(pattern) {
       this.$store.state[this.clickTarget] = pattern;
     }
   }
@@ -27,7 +29,6 @@ li {
   border: 1px #888 solid;
   margin: 4px;
   opacity: 0.3;
-  border-radius: 4px;
   &.active {
     border: 1px #000 solid;
     opacity: 1;

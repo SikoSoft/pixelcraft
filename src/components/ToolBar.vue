@@ -8,7 +8,7 @@
     <Swapper />
   </div>
   <div id="pc-toolbar-closed" v-else>
-    <button @click="showToolBar">{{ $strings.showToolBar }}</button>
+    <button @click="showToolBar"><i class="fas fa-tools"></i></button>
   </div>
 </template>
 
@@ -48,5 +48,13 @@ export default {
   top: 10px;
   right: 10px;
   height: 10px;
+  button {
+    height: 20px;
+    padding: 1px 2px 1px 2px;
+    font-size: 14px;
+    margin: 0;
+    top: -9px;
+    position: relative;
+  }
 }
 </style>

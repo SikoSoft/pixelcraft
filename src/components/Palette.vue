@@ -1,33 +1,35 @@
 <template>
-  <div id="pc-palette">
+  <div class="pc-palette">
     <ul>
-      <PalettePattern v-for="pattern in patterns"
+      <PalettePattern
+        v-for="pattern in patterns"
         :key="pattern"
         :pattern="pattern"
         :clickTarget="patternClickTarget"
-        />
+      />
     </ul>
   </div>
 </template>
 
 <script>
-import PalettePattern from './PalettePattern.vue';
-import { patterns } from '../data/patterns.json';
+import PalettePattern from "./PalettePattern.vue";
+import { patterns } from "../data/patterns.json";
 
 export default {
-  props: ['patternClickHandler', 'patternClickTarget'],
+  props: ["patternClickHandler", "patternClickTarget"],
   components: { PalettePattern },
-  data(){
+  data() {
     return {
       patterns
-    }
+    };
   }
 };
 </script>
 
 <style lang="less">
-#pc-palette {
+.pc-palette {
   background-color: #efefef;
+  margin: 10px 0;
   ul {
     list-style: none;
     margin: 0;
