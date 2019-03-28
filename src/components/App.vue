@@ -1,7 +1,7 @@
 <template>
   <div @mouseup="onMouseUp">
     <Header/>
-    <Palette :patternClickTarget="`activePattern`"/>
+    <Palette patternClickTarget="activePattern"/>
     <Canvas/>
   </div>
 </template>

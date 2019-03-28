@@ -1,12 +1,12 @@
 <template>
   <fieldset>
     <legend>{{ $strings.pixelSize }}</legend>
-    <NumberField :stateKey="`pixelSize`" />
+    <NumberField stateKey="pixelSize"/>
   </fieldset>
 </template>
 
 <script>
-import NumberField from './NumberField.vue';
+import NumberField from "./NumberField.vue";
 
 export default {
   components: { NumberField }
@@ -14,5 +14,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 </style>
